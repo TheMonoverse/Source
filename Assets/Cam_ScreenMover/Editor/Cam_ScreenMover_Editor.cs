@@ -30,11 +30,13 @@ public class Cam_ScreenMover_Editor : Editor {
 
     
     private int selectedLayout = 0;
-
+    //foldout variables
     private bool newLayoutMenu = true;
     private string newLayoutMenuString = "Hide Layout creation Menu.";
     private bool cameraAttachMenu = true;
     private string cameraAttachMenuString = "Hide Cameras";
+    private bool layoutSelectorMenu = true;
+    private string layoutSelectorString = "Hide Layouts.";
 
 
     private int layoutNumber = 0;
@@ -134,14 +136,15 @@ public class Cam_ScreenMover_Editor : Editor {
         }
 
 
-
+        layoutSelectorMenu = EditorGUILayout.Foldout(layoutSelectorMenu, layoutSelectorString);
         if (cScreenM.screenStatuses.Count == 0)
         {
             EditorGUILayout.LabelField("No layout defined. Click <Create Layout> button to start.", EditorStyles.boldLabel);
             return;
         }
-        else
+        else if(layoutSelectorMenu)
         {
+            layoutSelectorString = "Hide Layouts.";
             int[] layoutTypeCount = new int[(int)ScreenLayout.COUNT];
             string[] selectionGridStatuses = new string[cScreenM.screenStatuses.Count];
 
@@ -161,6 +164,10 @@ public class Cam_ScreenMover_Editor : Editor {
                     layoutNumber++;
                 }
             }
+        }
+        else if (!layoutSelectorMenu)
+        {
+            layoutSelectorString = "Show Layouts.";
         }
         //Displays the selected layout.
         EditorGUILayout.LabelField("Total Layouts: " + cScreenM.screenStatuses.Count, EditorStyles.boldLabel);
@@ -182,6 +189,8 @@ public class Cam_ScreenMover_Editor : Editor {
         EditorGUILayout.RectField(cScreenM.japan.name, cScreenM.screenStatuses[selectedLayout].japan.rect);
         EditorGUILayout.FloatField("Camera Dept: ", cScreenM.japan.depth, GUILayout.MaxWidth(250f));
         EditorGUILayout.EndVertical();
+
+
 
         EditorGUILayout.BeginVertical(palletLightBox);
         EditorGUILayout.RectField(cScreenM.viking.name, cScreenM.screenStatuses[selectedLayout].viking.rect);
@@ -219,9 +228,6 @@ public class Cam_ScreenMover_Editor : Editor {
         palletLightestBox.normal.background = MakeTex(2, 2, new Color(0.471f, 0.529f, 0.671f, 1f));
 
     }
-
-
-
 
     private Texture2D MakeTex(int width, int height, Color col)
     {

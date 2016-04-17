@@ -23,14 +23,14 @@ public class CameraController : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GetComponent<Cam_ScreenMover>().PayTest();
+        }
 	}
 
-    void SetCameraPositions() 
-    {
-        
-    }
 
 
 }
