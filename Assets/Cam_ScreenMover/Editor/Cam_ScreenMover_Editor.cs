@@ -44,7 +44,7 @@ public class Cam_ScreenMover_Editor : Editor {
     public override void OnInspectorGUI()
     {
         Cam_ScreenMover cScreenM = (Cam_ScreenMover)target;
-
+        InitStyles();
         if (!stylesInit)
         {
             InitStyles();
@@ -86,45 +86,45 @@ public class Cam_ScreenMover_Editor : Editor {
         {
             newLayoutMenuString = "Hide Layout creation Menu.";
             EditorGUILayout.BeginVertical(palletDarkBox);
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Select Type of Layout: ", EditorStyles.boldLabel, GUILayout.Width(300f));
-            newCam_Layout = EditorGUILayout.Popup("", newCam_Layout, optionsLayout, GUILayout.Width(200f));
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.HelpBox("Based on cameras rect and dept.", MessageType.Info);
-            if (GUILayout.Button("Create Layout", GUILayout.Width(200f), GUILayout.MaxHeight(40f)))
-            {
-                Cam_Status nSpace = new Cam_Status(cScreenM.space);
-                Cam_Status nJungle = new Cam_Status(cScreenM.jungle);
-                Cam_Status nJapan = new Cam_Status(cScreenM.japan);
-                Cam_Status nViking = new Cam_Status(cScreenM.viking);
-                Cam_Status_Holder nHolder = new Cam_Status_Holder(nSpace, nJungle, nJapan, nViking, (ScreenLayout)newCam_Layout);
-                cScreenM.CreateNewLayout(nHolder);
+                EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField("Select Type of Layout: ", EditorStyles.boldLabel, GUILayout.MaxWidth(1000f));
+                    newCam_Layout = EditorGUILayout.Popup("", newCam_Layout, optionsLayout, GUILayout.Width(200f));
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField("Based on Cameras Layouts.", EditorStyles.helpBox, GUILayout.MaxWidth(1000f));
+                    if (GUILayout.Button("Create Layout", GUILayout.Width(200f), GUILayout.Height(40f)))
+                    {
+                        Cam_Status nSpace = new Cam_Status(cScreenM.space);
+                        Cam_Status nJungle = new Cam_Status(cScreenM.jungle);
+                        Cam_Status nJapan = new Cam_Status(cScreenM.japan);
+                        Cam_Status nViking = new Cam_Status(cScreenM.viking);
+                        Cam_Status_Holder nHolder = new Cam_Status_Holder(nSpace, nJungle, nJapan, nViking, (ScreenLayout)newCam_Layout);
+                        cScreenM.CreateNewLayout(nHolder);
 
-                selectedLayout = cScreenM.screenStatuses.Count - 1;
+                        selectedLayout = cScreenM.screenStatuses.Count - 1;
 
-            }
-            EditorGUILayout.EndHorizontal();
+                    }
+                EditorGUILayout.EndHorizontal();
             EditorGUILayout.EndVertical();
             ///Current Layout
             EditorGUILayout.BeginVertical(palletLightestBox);
             cScreenM.space.rect = EditorGUILayout.RectField(cScreenM.space.name, cScreenM.space.rect);
-            cScreenM.space.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.space.depth, GUILayout.MaxWidth(250f));
+            cScreenM.space.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.space.depth, GUILayout.Width(270f));
             EditorGUILayout.EndVertical();
 
             EditorGUILayout.BeginVertical(palletLightestBox);
             cScreenM.jungle.rect = EditorGUILayout.RectField(cScreenM.jungle.name, cScreenM.jungle.rect);
-            cScreenM.jungle.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.jungle.depth, GUILayout.MaxWidth(250f));
+            cScreenM.jungle.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.jungle.depth, GUILayout.Width(270f));
             EditorGUILayout.EndVertical();
 
             EditorGUILayout.BeginVertical(palletLightestBox);
             cScreenM.japan.rect = EditorGUILayout.RectField(cScreenM.japan.name, cScreenM.japan.rect);
-            cScreenM.japan.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.japan.depth, GUILayout.MaxWidth(250f));
+            cScreenM.japan.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.japan.depth, GUILayout.Width(270f));
             EditorGUILayout.EndVertical();
 
             EditorGUILayout.BeginVertical(palletLightestBox);
             cScreenM.viking.rect = EditorGUILayout.RectField(cScreenM.viking.name, cScreenM.viking.rect);
-            cScreenM.viking.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.viking.depth, GUILayout.MinWidth(30f));
+            cScreenM.viking.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.viking.depth, GUILayout.Width(270f));
             EditorGUILayout.EndVertical();
             ///Current Layout
             ///
@@ -154,7 +154,7 @@ public class Cam_ScreenMover_Editor : Editor {
                 selectionGridStatuses[i] = cScreenM.screenStatuses[i].layout.ToString() + "  # " + layoutTypeCount[(int)cScreenM.screenStatuses[i].layout];
             }
 
-            selectedLayout = GUILayout.SelectionGrid(selectedLayout, selectionGridStatuses, 3);
+            selectedLayout = GUILayout.SelectionGrid(selectedLayout, selectionGridStatuses, 2);
             
             layoutNumber = 0;
             for (int j = 0; j <= selectedLayout; j++)
@@ -213,19 +213,19 @@ public class Cam_ScreenMover_Editor : Editor {
     {
 
         palletDarkestBox = new GUIStyle(GUI.skin.box);
-        palletDarkestBox.normal.background = MakeTex(2, 2, new Color(0.024f, 0.082f, 0.224f, 1f));
+        palletDarkestBox.normal.background = MakeTex(2, 2, new Color(0.1f, 0.1f, 0.1f, 1f));
         
         palletDarkBox = new GUIStyle(GUI.skin.box);
-        palletDarkBox.normal.background = MakeTex(2, 2, new Color(0.086f, 0.161f, 0.333f, 1f));
+        palletDarkBox.normal.background = MakeTex(2, 2, new Color(0.3f, 0.3f, 0.3f, 1f));
 
         palletMidBox = new GUIStyle(GUI.skin.box);
-        palletMidBox.normal.background = MakeTex(2, 2, new Color(0.18f, 0.255f, 0.447f, 1f));
+        palletMidBox.normal.background = MakeTex(2, 2, new Color(0.5f, 0.5f, 0.5f, 1f));
 
         palletLightBox = new GUIStyle(GUI.skin.box);
-        palletLightBox.normal.background = MakeTex(2, 2, new Color(0.31f, 0.384f, 0.557f, 1f));
+        palletLightBox.normal.background = MakeTex(2, 2, new Color(0.6f, 0.6f, 0.6f, 1f));
 
         palletLightestBox = new GUIStyle(GUI.skin.box);
-        palletLightestBox.normal.background = MakeTex(2, 2, new Color(0.471f, 0.529f, 0.671f, 1f));
+        palletLightestBox.normal.background = MakeTex(2, 2, new Color(0.9f, 0.9f, 0.9f, 1f));
 
     }
 

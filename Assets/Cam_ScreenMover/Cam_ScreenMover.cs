@@ -73,7 +73,8 @@ public class Cam_ScreenMover : MonoBehaviour {
         StartCoroutine(MotionDuration());
     }
 
-    void MoveSpace() // float fracJourney = (Time.time - stepStartTime) / stepDuration;
+#region SeparateCamMovement
+    void MoveSpace() 
     {
         space.rect = new Rect((Mathf.Lerp(spaceRect.x, screenStatuses[testingInt].space.rect.x, ((Time.time - StartTime) / 2f)))
                              , (Mathf.Lerp(spaceRect.y, screenStatuses[testingInt].space.rect.y, ((Time.time - StartTime) / 2f)))
@@ -104,6 +105,7 @@ public class Cam_ScreenMover : MonoBehaviour {
                             , (Mathf.Lerp(vikingRect.width, screenStatuses[testingInt].viking.rect.width, ((Time.time - StartTime) / 2f)))
                             , (Mathf.Lerp(vikingRect.height, screenStatuses[testingInt].viking.rect.height, ((Time.time - StartTime) / 2f))));
     }
+#endregion
 
     IEnumerator MotionDuration() 
     {
