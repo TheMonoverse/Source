@@ -50,7 +50,12 @@
      <Compile Include="Assets\_Framework\Camera\Cam_SmoothFollow.cs" />
      <Compile Include="Assets\_Framework\Camera\CameraController.cs" />
      <Compile Include="Assets\_Framework\Camera\SplitCam.cs" />
+     <Compile Include="Assets\_Framework\GameController\GameController.cs" />
      <Compile Include="Assets\_Framework\Player\Character_Controller.cs" />
+     <Compile Include="Assets\_Framework\SceneScripts\Scrolling_Background.cs" />
+     <None Include="Assets\Material\learn2.shader" />
+     <None Include="Assets\Material\learn3.shader" />
+     <None Include="Assets\Material\learningShader.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
