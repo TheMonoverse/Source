@@ -51,6 +51,9 @@
      <Compile Include="Assets\_Framework\Camera\CameraController.cs" />
      <Compile Include="Assets\_Framework\Camera\SplitCam.cs" />
      <Compile Include="Assets\_Framework\GameController\GameController.cs" />
+     <Compile Include="Assets\_Framework\Parallax\ParallaxBG.cs" />
+     <Compile Include="Assets\_Framework\Parallax\ParallaxCam.cs" />
+     <Compile Include="Assets\_Framework\Parallax\ParallaxLayer.cs" />
      <Compile Include="Assets\_Framework\Player\Character_Controller.cs" />
      <Compile Include="Assets\_Framework\SceneScripts\Scrolling_Background.cs" />
      <None Include="Assets\Material\learn2.shader" />

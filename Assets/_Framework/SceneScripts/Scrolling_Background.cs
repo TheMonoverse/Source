@@ -8,8 +8,10 @@ public class Scrolling_Background : MonoBehaviour {
 
     public void Scroll(Vector3 direction) 
     {
-        Vector3 movement = direction * scrollSpeed ;
-        Debug.Log(movement);
+        Vector3 movement = new Vector3(direction.x * scrollSpeed, direction.y * scrollSpeed, 0f);
+        
+
+
         transform.Translate(movement);
     }
 }

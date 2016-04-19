@@ -126,6 +126,11 @@ public class Cam_ScreenMover_Editor : Editor {
             cScreenM.viking.rect = EditorGUILayout.RectField(cScreenM.viking.name, cScreenM.viking.rect);
             cScreenM.viking.depth = EditorGUILayout.FloatField("Camera Dept: ", cScreenM.viking.depth, GUILayout.Width(270f));
             EditorGUILayout.EndVertical();
+            if (GUILayout.Button("Remove Current", GUILayout.Width(200f), GUILayout.Height(40f)))
+            {
+                cScreenM.RemoveAt( cScreenM.screenStatuses.Count - 1);
+
+            }
             ///Current Layout
             ///
 

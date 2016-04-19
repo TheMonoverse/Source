@@ -58,15 +58,7 @@ public class Character_Controller : MonoBehaviour {
             rb.AddForce(new Vector2(0f, 500f));
             jump = 1f;
         }
-        if (mName == "space")
-        {
-            if (move != 0f || jump != 0f)
-            {
-                Vector3 direction = new Vector3(move*-1f, jump, 0f);
-                direction.Normalize();
-                gc.ScrollBackgrounds(direction);
-            }
-        }
+      
 
     }
 }

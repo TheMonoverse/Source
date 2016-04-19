@@ -37,6 +37,11 @@ public class Cam_ScreenMover : MonoBehaviour {
         screenStatuses.Add(cStat);
     }
 
+    public void RemoveAt(int index) 
+    {
+        screenStatuses.RemoveAt(index);
+    }
+
     //Will also take a transition duration.
     public void TransitionTo(Cam_Status transTo)
     {
