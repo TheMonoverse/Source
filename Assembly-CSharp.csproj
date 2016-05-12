@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -49,21 +49,16 @@
      <Compile Include="Assets\Cam_ScreenMover\Cam_Status.cs" />
      <Compile Include="Assets\_Framework\Camera\Cam_SmoothFollow.cs" />
      <Compile Include="Assets\_Framework\Camera\CameraController.cs" />
-     <Compile Include="Assets\_Framework\Camera\SplitCam.cs" />
      <Compile Include="Assets\_Framework\GameController\GameController.cs" />
      <Compile Include="Assets\_Framework\Parallax\ParallaxBG.cs" />
      <Compile Include="Assets\_Framework\Parallax\ParallaxCam.cs" />
      <Compile Include="Assets\_Framework\Parallax\ParallaxLayer.cs" />
      <Compile Include="Assets\_Framework\Player\Character_Controller.cs" />
-     <Compile Include="Assets\_Framework\SceneScripts\Scrolling_Background.cs" />
-     <None Include="Assets\Material\learn2.shader" />
-     <None Include="Assets\Material\learn3.shader" />
-     <None Include="Assets\Material\learningShader.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
