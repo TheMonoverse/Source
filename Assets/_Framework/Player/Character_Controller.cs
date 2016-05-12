@@ -25,7 +25,7 @@ public class Character_Controller : MonoBehaviour {
     void Awake() 
     {
         rb = GetComponent<Rigidbody2D>();
-        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        //gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 	// Use this for initialization
 	void Start () {
